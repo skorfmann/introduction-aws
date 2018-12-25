@@ -3,7 +3,7 @@
   "name": "time-tracker-app",
   "version": "1.0.0",
   "description": "Time Tracking App",
-  "main": "index.js",
+  "main": "./dist/lib/index.js",
   "scripts": {
     "clear": "rimraf -rf ./dist ./.cache",
     "build": "dotenv -- parcel build src/index.html --public-url ./",
@@ -11,6 +11,8 @@
     "start": "dotenv -- http-server ./dist",
     "aws:bootstrap": "cdk bootstrap",
     "aws:deploy": "cdk deploy",
+    "aws:build": "tsc -p tsconfig.cdk.json",
+    "aws:watch": "tsc -w -p tsconfig.cdk.json",
     "deploy": "npm run clear && npm run build && npm run aws:bootstrap && npm run aws:deploy"
   },
   "dependencies": {
@@ -18,9 +20,9 @@
   },
   "devDependencies": {
     "@aws-cdk/aws-route53": "^0.21.0",
-    "@aws-cdk/aws-s3": "^0.20.0",
-    "@aws-cdk/aws-s3-deployment": "^0.20.0",
-    "@aws-cdk/cdk": "^0.20.0",
+    "@aws-cdk/aws-s3": "^0.21.0",
+    "@aws-cdk/aws-s3-deployment": "^0.21.0",
+    "@aws-cdk/cdk": "^0.21.0",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "apollo-boost": "^0.1.23",
